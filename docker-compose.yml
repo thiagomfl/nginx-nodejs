@@ -21,6 +21,7 @@ services:
   app:
     build: ./server
     container_name: node_server
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 30s docker-entrypoint.sh
     restart: always
     tty: true
     ports:
